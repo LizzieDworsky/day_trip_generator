@@ -58,9 +58,4 @@ while final_confirmation == "n":
 
     final_confirmation = input (f"Congratulations! Your day trip has been generated! You will be taking a {selected_transportation} to {selected_destination}. While there you will {selected_entertainment} and eat at {selected_resturant} resturant for dinner! Does this sound good y/n? ")
 
-
-
-#after repeating through all the lists double check that the user likes the selections, 
-# have to be able to reselect if they do not
-
-#if they like need to print the vacation out
+print (f"Congratulations! We are so excited that you like your day trip selections! Here is your itinerary: You'll be travelling using a {selected_transportation} to {selected_destination}, while there you'll {selected_entertainment} and eat dinner at {selected_resturant}. Hope you enjoy your time!")
