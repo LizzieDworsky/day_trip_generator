@@ -28,10 +28,15 @@ print (selected_destination)
 
 #need to create a function that checks if user likes selection or not
 def check_if_user_likes_choice (selected_variable, list_type):
-    input (f"The {list_type} selected for you is {selected_variable}. Does this sound good? Enter y/n: ")
-    #if y = T
-    #if no = F
-    #return Boolean value
+    user_likes_option = input (f"The {list_type} selected for you is {selected_variable}. Does this sound good? Enter y/n: ")
+    if user_likes_option == "n" or user_likes_option == "no":
+        user_likes_option = False
+    if user_likes_option == "y" or user_likes_option == "yes":
+        user_likes_option = True
+    else:
+        input (f"We're sorry there was an error. Does the {list_type} {selected_variable} sound good to you? Yes or no: ")
+
+check_if_user_likes_choice (selected_destination, "destination")
 
 
 #write a function that takes the boolean value and if T moves us forward, if F repeats. 
