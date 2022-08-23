@@ -3,6 +3,7 @@ destinations_dictionary = {"option_one": "Lambeau Field", "option_two": "Levi's 
 restaurants_dictionary = {"option_one": "Taverne in the Sky", "option_two": "Alinea", "option_three": "Pho", "option_four": "Pacific Catch"}
 transportation_dictionary = {"option_one": "boat", "option_two": "car", "option_three": "train", "option_four": "bicycle"}
 entertainment_dictionary = {"option_one": "watch a football game", "option_two": "go on a hot air balloon ride", "option_three": "go to the beach", "option_four": "go on a boat tour"}
+final_trip_dictionary = {"destination": "", "transportation": "", "restaurant": "", "entertainment": ""}
 
 #lists and list selection function
 # destinations = ["Lambeau Field", "Levi's Stadium", "Soldier Field", "SoFi Stadium"]
@@ -32,34 +33,37 @@ def selection_and_confirmation (current_dict, dict_type):
     selection = check_if_user_likes_choice (selection, current_dict, dict_type)
     return selection
 
+
 #destination
-selected_destination = selection_and_confirmation (destinations_dictionary, "destination")
+final_trip_dictionary["destination"] = selection_and_confirmation (destinations_dictionary, "destination")
 
 #transportation
-selected_transportation = selection_and_confirmation (transportation_dictionary, "transportation")
+final_trip_dictionary["transportation"] = selection_and_confirmation (transportation_dictionary, "transportation")
 
 #resturant
-selected_restaurant = selection_and_confirmation (restaurants_dictionary, "restaurant")
+final_trip_dictionary["restaurant"] = selection_and_confirmation (restaurants_dictionary, "restaurant")
 
 #entertainment
-selected_entertainment = selection_and_confirmation (entertainment_dictionary, "entertainment")
+final_trip_dictionary["entertainment"] = selection_and_confirmation (entertainment_dictionary, "entertainment")
 
 #final confirmation
-final_confirmation = input (f"Congratulations! Your day trip has been generated! You will be taking a {selected_transportation} to {selected_destination}. While there you will {selected_entertainment} and eat at {selected_restaurant} restaurant for dinner! Does this sound good y/n? ")
+final_confirmation = input (f"Congratulations! Your day trip has been generated! You will be taking a {final_trip_dictionary['transportation']} to {final_trip_dictionary['destination']}. While there you will {final_trip_dictionary['entertainment']} and eat at {final_trip_dictionary['restaurant']} restaurant for dinner! Does this sound good y/n? ")
 while final_confirmation == "n":
     print ("We're sorry to hear this isn't what you wanted. Lets try again!")
-    change_selection = input (f"Are you satisfied with {selected_destination}, y/n? ")
+    change_selection = input (f"Are you satisfied with {final_trip_dictionary['destination']}, y/n? ")
     if change_selection == "n" or change_selection == "no":
-        selected_destination = selection_and_confirmation (destinations_dictionary, "destination")
-    change_selection = input (f"Are you satisfied with {selected_transportation}, y/n? ")
+        final_trip_dictionary["destination"] = selection_and_confirmation (destinations_dictionary, "destination")
+    change_selection = input (f"Are you satisfied with {final_trip_dictionary['transportation']}, y/n? ")
     if change_selection == "n" or change_selection == "no":
-        selected_transportation = selection_and_confirmation (transportation_dictionary, "transportation")
-    change_selection = input (f"Are you satisfied with {selected_restaurant}, y/n? ")
+        final_trip_dictionary["transportation"] = selection_and_confirmation (transportation_dictionary, "transportation")
+    change_selection = input (f"Are you satisfied with {final_trip_dictionary['restaurant']}, y/n? ")
     if change_selection == "n" or change_selection == "no":
-        selected_restaurant = selection_and_confirmation (restaurants_dictionary, "restaurant")
-    change_selection = input (f"Are you satisfied with {selected_entertainment}, y/n? ")
+        final_trip_dictionary["restaurant"] = selection_and_confirmation (restaurants_dictionary, "restaurant")
+    change_selection = input (f"Are you satisfied with {final_trip_dictionary['entertainment']}, y/n? ")
     if change_selection == "n" or change_selection == "no":
-        selected_entertainment = selection_and_confirmation (entertainment_dictionary, "entertainment")
-    final_confirmation = input (f"Congratulations! Your day trip has been generated! You will be taking a {selected_transportation} to {selected_destination}. While there you will {selected_entertainment} and eat at {selected_restaurant} restaurant for dinner! Does this sound good y/n? ")
+        final_trip_dictionary["entertainment"] = selection_and_confirmation (entertainment_dictionary, "entertainment")
+    final_confirmation = input (f"Congratulations! Your day trip has been generated! You will be taking a {final_trip_dictionary['transportation']} to {final_trip_dictionary['destination']}. While there you will {final_trip_dictionary['entertainment']} and eat at {final_trip_dictionary['restaurant']} restaurant for dinner! Does this sound good y/n? ")
 
-print (f"Congratulations! We are so excited that you like your day trip selections! Here is your itinerary: You'll be travelling using a {selected_transportation} to {selected_destination}, while there you'll {selected_entertainment} and eat dinner at {selected_restaurant}. Hope you enjoy your time!")
+print (f"Congratulations! We are so excited that you like your day trip selections! Here is your itinerary: You'll be travelling using a {final_trip_dictionary['transportation']} to {final_trip_dictionary['destination']}, while there you'll {final_trip_dictionary['entertainment']} and eat dinner at {final_trip_dictionary['restaurant']}. Hope you enjoy your time!")
+
+# also, should wrap everything within a function and call that function.
