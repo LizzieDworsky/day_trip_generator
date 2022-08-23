@@ -1,4 +1,5 @@
 import random
+destinations_dictionary = {"option_one": "Lambeau Field", "option_two": "Levi's Stadium", "option_three": "Soldier Field", "option_four": "SoFi Stadium"}
 destinations = ["Lambeau Field", "Levi's Stadium", "Soldier Field", "SoFi Stadium"]
 restaurants = ["Taverne in the Sky", "Alinea", "Pho", "Pacific Catch"]
 transportation = ["boat", "car", "train", "bicycle"]
@@ -8,6 +9,14 @@ entertainment = ["watch a football game", "go on a hot air balloon ride", "go to
 def randomly_select_from_lists (list):
     random_selection = random.choice (list)
     return random_selection
+
+def randomly_select_from_dictionaries(dictionary):
+    random_selection = random.choice(list(dictionary.values()))
+    print(random_selection)
+randomly_select_from_dictionaries(destinations_dictionary)
+randomly_select_from_dictionaries(destinations_dictionary)
+randomly_select_from_dictionaries(destinations_dictionary)
+randomly_select_from_dictionaries(destinations_dictionary)
 
 #user preference function
 def check_if_user_likes_choice (selected_variable, list_name, list_type):
